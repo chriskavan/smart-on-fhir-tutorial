@@ -30,6 +30,7 @@
 
           var fname = '';
           var lname = '';
+          var pattymcid = '';
 
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
@@ -83,6 +84,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      pattymcid: {value: ''},
     };
   }
 
@@ -126,6 +128,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+    $('#pattymcid').html(p.pattymcid);
   };
 
 })(window);
