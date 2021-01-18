@@ -37,8 +37,8 @@
           }
 
           var pattymcid = '';
-          if (typeof patient.id[0] !== 'undefined') {
-            pattymcid = patient.id[0].join(' ');
+          if (typeof patient.id !== 'undefined') {
+            pattymcid = patient.id;
           }
           
           var height = byCodes('8302-2');
