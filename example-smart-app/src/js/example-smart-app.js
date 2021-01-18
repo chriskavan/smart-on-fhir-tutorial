@@ -66,6 +66,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
+          p.pattymcid = pattymcid;
           ret.resolve(p);
         });
       } else {
