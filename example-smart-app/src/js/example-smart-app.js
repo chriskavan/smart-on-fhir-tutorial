@@ -37,9 +37,10 @@
           }
 
           var pattymcid = '';
-          if (typeof patient.id !== 'undefined') {
+          pattymcid = patient.id;
+          /*if (typeof patient.id !== 'undefined') {
             pattymcid = patient.id;
-          }
+          }*/
           
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
