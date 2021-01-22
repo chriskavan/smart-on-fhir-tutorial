@@ -95,7 +95,7 @@
 
             console.log('Trying the Appt thing:',appt);
 
-            }
+            });
 
 
 
