@@ -1202,7 +1202,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            searchParams,
 	            function(entries) {
 	                entries.forEach(function(entry) {
-	                    results.push(entry);
+	                    console.log('searchParams entry:',entry);
+                      results.push(entry);
 	                });
 	            },
 	            function () {
@@ -16993,8 +16994,11 @@ function completeCodeFlow(params){
       // state query param will be used to look up
       // token response upon page reload.
 
+	
       queryParam += (window.location.search ? '&' : '?');
       queryParam += 'state=' + params.state;
+	    
+	    console.log('queryParam:',queryParam);
 
       var url = window.location.protocol + '//' +
                              window.location.host +
