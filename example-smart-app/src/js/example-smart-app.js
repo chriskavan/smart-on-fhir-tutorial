@@ -30,7 +30,7 @@
 
           var fname = '';
           var lname = '';
-          
+
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -41,7 +41,7 @@
           /*if (typeof patient.id !== 'undefined') {
             pattymcid = patient.id;
           }*/
-          
+
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
@@ -67,6 +67,18 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
           p.pattymcid = pattymcid;
+
+          var apptid = '';
+          var apptstatus = '';
+          var appttype = '';
+          var apptparticipant = '';
+          var apptreason = '';
+          var apptdescription = '';
+          var apptstartdt = '';
+          var apptenddt = '';
+          var apptduration = '';
+          var apptcomment = '';
+          
           ret.resolve(p);
         });
       } else {
@@ -91,6 +103,16 @@
       ldl: {value: ''},
       hdl: {value: ''},
       pattymcid: {value: ''},
+      apptid: {value: ''},
+      apptstatus: {value: ''},
+      appttype: {value: ''},
+      apptparticipant: {value: ''},
+      apptreason: {value: ''},
+      apptdescription: {value: ''},
+      apptstartdt: {value: ''},
+      apptenddt: {value: ''},
+      apptduration: {value: ''},
+      apptcomment: {value: ''},
     };
   }
 
@@ -135,6 +157,16 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#pattymcid').html(p.pattymcid);
+    $('#apptid').html(p.apptid);
+    $('#apptstatus').html(p.apptstatus);
+    $('#appttype').html(p.appttype);
+    $('#apptparticipant').html(p.apptparticipant);
+    $('#apptreason').html(p.apptreason);
+    $('#apptdescription').html(p.apptdescription);
+    $('#apptstartdt').html(p.apptstartdt);
+    $('#apptenddt').html(p.apptenddt);
+    $('#apptduration').html(p.apptduration);
+    $('#apptcomment').html(p.apptcomment);
   };
 
 })(window);
