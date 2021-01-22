@@ -72,9 +72,6 @@
                       type: 'Appointment',
                       query: {
                         date: {
-                          $or: ['ge2021-01-22']
-                        }
-                        date: {
                           $or: ['le2021-12-31']
                         }
                       }
