@@ -116,6 +116,7 @@
             p.apptduration = apptduration;
             p.apptcomment = apptcomment;
             
+            ret.resolve(p);
 
             });
 
