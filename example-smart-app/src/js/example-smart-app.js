@@ -68,17 +68,37 @@
 
           p.pattymcid = pattymcid;
 
-          var apptid = '';
-          var apptstatus = '';
-          var appttype = '';
-          var apptparticipant = '';
-          var apptreason = '';
-          var apptdescription = '';
-          var apptstartdt = '';
-          var apptenddt = '';
-          var apptduration = '';
-          var apptcomment = '';
-          
+          var appt = smart.patient.api.fetchAll({
+                      type: 'Appointment',
+                      query: {
+                        code: {
+                          $or: ['booked', 'proposed',
+                                'pending', 'arrived']
+                        }
+                      }
+                    });
+
+          $.when(pt, appt).fail(onError);
+
+          $.when(pt, appt).done(function(patient, appt) {
+
+            var apptid = '';
+            var apptstatus = '';
+            var appttype = '';
+            var apptparticipant = '';
+            var apptreason = '';
+            var apptdescription = '';
+            var apptstartdt = '';
+            var apptenddt = '';
+            var apptduration = '';
+            var apptcomment = '';
+
+            console.log('Trying the Appt thing:',appt)
+
+            }
+
+
+
           ret.resolve(p);
         });
       } else {
