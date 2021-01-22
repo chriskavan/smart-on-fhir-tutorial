@@ -93,6 +93,18 @@
             var apptcomment = '';
 
             console.log('Trying the Appt thing:',appt);
+            
+            apptid = appt[0].id;
+            apptstatus = appt[0].status;
+            appttype = appt[0].type.text;
+            apptparticipant = appt[0].participant[0].actor.display;
+            apptreason = '';
+            apptdescription = appt[0].description;
+            apptstartdt = appt[0].start;
+            apptenddt = appt[0].end;
+            apptduration = appt[0].minutesDuration;
+            apptcomment = appt[0].text.div;
+            
 
             });
 
