@@ -71,11 +71,9 @@
           var appt = smart.patient.api.fetchAll({
                       type: 'Appointment',
                       query: {
-                        status: {
-                          $or: ['booked', 'proposed',
-                                'pending', 'arrived']
+                        date: {
+                          $or: ['ge2021-01-22']
                         }
-                        date: 'ge2021-01-22'
                       }
                     });
 
