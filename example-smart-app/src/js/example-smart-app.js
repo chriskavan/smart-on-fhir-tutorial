@@ -105,6 +105,17 @@
             apptduration = appt[0].minutesDuration;
             apptcomment = appt[0].text.div;
             
+            p.apptid = apptid;
+            p.apptstatus = apptstatus;
+            p.appttype = appttype;
+            p.apptparticipant = apptparticipant;
+            p.apptreason = apptreason;
+            p.apptdescription = apptdescription;
+            p.apptstartdt = apptstartdt;
+            p.apptenddt = apptenddt;
+            p.apptduration = apptduration;
+            p.apptcomment = apptcomment;
+            
 
             });
 
