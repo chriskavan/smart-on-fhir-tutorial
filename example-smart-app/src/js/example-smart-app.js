@@ -93,7 +93,7 @@
             var apptduration = '';
             var apptcomment = '';
 
-            console.log('Trying the Appt thing:',appt)
+            console.log('Trying the Appt thing:',appt);
 
             }
 
