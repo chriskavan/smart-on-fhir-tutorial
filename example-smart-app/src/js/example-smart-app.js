@@ -72,7 +72,7 @@
                       type: 'Appointment',
                       query: {
                         date: {
-                          $or: ['le2021-12-31']
+                          $or: ['2021']
                         }
                       }
                     });
