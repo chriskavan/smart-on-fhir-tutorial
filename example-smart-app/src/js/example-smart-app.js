@@ -71,7 +71,7 @@
           var appt = smart.patient.api.fetchAll({
                       type: 'Appointment',
                       query: {
-                        code: {
+                        status: {
                           $or: ['booked', 'proposed',
                                 'pending', 'arrived']
                         }
