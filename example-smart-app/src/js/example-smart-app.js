@@ -35,7 +35,7 @@
         var docref = smart.patient.api.fetchAll({
                     type: 'DocumentReference',
                     query: {
-                      count: 10
+                      count: 10  //but that just changes the size of the page, not how many total results are returned
                     }
                   });        
 
