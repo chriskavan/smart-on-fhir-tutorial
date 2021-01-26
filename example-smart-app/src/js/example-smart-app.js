@@ -36,17 +36,17 @@
                   });
         
         //DocumentReference.Search for patient
-        /*
+        
         var docref = smart.patient.api.fetchAll({
                     type: 'DocumentReference',
                     query: {
                       count: 10  //but that just changes the size of the page, not how many total results are returned
                     }
                   });        
-        */
-        $.when(pt, obv, appt).fail(onError);
+        
+        $.when(pt, obv, appt,docref).fail(onError);
 
-        $.when(pt, obv, appt).done(function(patient, obv, appt) {
+        $.when(pt, obv, appt,docref).done(function(patient, obv, appt,docref) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
