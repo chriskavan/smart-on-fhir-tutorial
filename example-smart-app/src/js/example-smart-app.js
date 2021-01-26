@@ -67,12 +67,14 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
           p.pattymcid = pattymcid;
+          
+          console.log('p Values after Observation search:',p);
 
           var appt = smart.patient.api.fetchAll({
                       type: 'Appointment',
                       query: {
                         date: {
-                          $or: ['2021']
+                          $or: ['2021']           //This is just a way to get the Appointments.Search call to work
                         }
                       }
                     });
@@ -105,6 +107,8 @@
             apptduration = appt[0].minutesDuration;
             apptcomment = appt[0].text.div;
             
+            var pa = defaultPatientAppt();
+            
             p.apptid = apptid;
             p.apptstatus = apptstatus;
             p.appttype = appttype;
@@ -116,7 +120,20 @@
             p.apptduration = apptduration;
             p.apptcomment = apptcomment;
             
-            ret.resolve(p);
+            console.log('p Values during appt search:',p);
+            
+            pa.apptid = apptid;
+            pa.apptstatus = apptstatus;
+            pa.appttype = appttype;
+            pa.apptparticipant = apptparticipant;
+            pa.apptreason = apptreason;
+            pa.apptdescription = apptdescription;
+            pa.apptstartdt = apptstartdt;
+            pa.apptenddt = apptenddt;
+            pa.apptduration = apptduration;
+            pa.apptcomment = apptcomment;
+            console.log('pa Values during appt search:',pa);
+            //ret.resolve(p);
 
             });
 
@@ -146,6 +163,21 @@
       ldl: {value: ''},
       hdl: {value: ''},
       pattymcid: {value: ''},
+      apptid: {value: ''},
+      apptstatus: {value: ''},
+      appttype: {value: ''},
+      apptparticipant: {value: ''},
+      apptreason: {value: ''},
+      apptdescription: {value: ''},
+      apptstartdt: {value: ''},
+      apptenddt: {value: ''},
+      apptduration: {value: ''},
+      apptcomment: {value: ''},
+    };
+  }
+  
+    function defaultPatientAppt(){
+    return {
       apptid: {value: ''},
       apptstatus: {value: ''},
       appttype: {value: ''},
