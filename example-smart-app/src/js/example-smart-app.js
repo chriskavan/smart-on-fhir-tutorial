@@ -181,6 +181,17 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+    $('#pattymcid').html(p.pattymcid);
+    $('#apptid').html(p.apptid);
+    $('#apptstatus').html(p.apptstatus);
+    $('#appttype').html(p.appttype);
+    $('#apptparticipant').html(p.apptparticipant);
+    $('#apptreason').html(p.apptreason);
+    $('#apptdescription').html(p.apptdescription);
+    $('#apptstartdt').html(p.apptstartdt);
+    $('#apptenddt').html(p.apptenddt);
+    $('#apptduration').html(p.apptduration);
+    $('#apptcomment').html(p.apptcomment);
   };
 
 })(window);
