@@ -119,6 +119,38 @@
           p.apptcomment = apptcomment;
 
           console.log('Trying the DocumentReference thing:',docref);
+          var docrefid = '';
+          var docrefverid = '';
+          var docreflastupdated = '';
+          var docrefstatustext = '';
+          var docrefstatusresource = '';
+          var docrefstatusdocument = '';
+          var docreftype = '';
+          var docreftypecode = '';
+          var docrefcodesystem = '';
+          var docreftext = '';
+          
+          docrefid = docref[0].id;
+          docrefverid = docref[0].meta.versionId;
+          docreflastupdated = docref[0]..meta.lastUpdated;
+          docrefstatustext = docref[0].text.status;
+          docrefstatusresource = docref[0].status;
+          docrefstatusdocument = docref[0].docStatus.coding[0].display;
+          docreftype = docref[0].type.text;
+          docreftypecode = docref[0].type.coding[0].code;
+          docrefcodesystem = docref[0].type.coding[0].system;
+          docreftext = docref[0].text.div;
+          
+          p.docrefid = docrefid;
+          p.docrefverid = docrefverid;
+          p.docreflastupdated = docreflastupdated;
+          p.docrefstatustext = docrefstatustext;
+          p.docrefstatusresource = docrefstatusresource;
+          p.docrefstatusdocument = docrefstatusdocument;
+          p.docreftype = docreftype;
+          p.docreftypecode = docreftypecode;
+          p.docrefcodesystem = docrefcodesystem;
+          p.docreftext = docreftext;
           
           ret.resolve(p);
         });
@@ -153,7 +185,17 @@
       apptstartdt: {value: ''},
       apptenddt: {value: ''},
       apptduration: {value: ''},
-      apptcomment: {value: ''},      
+      apptcomment: {value: ''},
+      docrefid: {value: ''},
+      docrefverid: {value: ''},
+      docreflastupdated: {value: ''},
+      docrefstatustext: {value: ''},
+      docrefstatusresource: {value: ''},
+      docrefstatusdocument: {value: ''},
+      docreftype: {value: ''},
+      docreftypecode: {value: ''},
+      docrefcodesystem: {value: ''},
+      docreftext: {value: ''},
     };
   }
 
@@ -208,6 +250,16 @@
     $('#apptenddt').html(p.apptenddt);
     $('#apptduration').html(p.apptduration);
     $('#apptcomment').html(p.apptcomment);
+    $('#docrefid').html(p.docrefid);
+    $('#docrefverid').html(p.docrefverid);
+    $('#docreflastupdated').html(p.docreflastupdated);
+    $('#docrefstatustext').html(p.docrefstatustext);
+    $('#docrefstatusresource').html(p.docrefstatusresource);
+    $('#docrefstatusdocument').html(p.docrefstatusdocument);
+    $('#docreftype').html(p.docreftype);
+    $('#docreftypecode').html(p.docreftypecode);
+    $('#docrefcodesystem').html(p.docrefcodesystem);
+    $('#docreftext').html(p.docreftext);
   };
 
 })(window);
