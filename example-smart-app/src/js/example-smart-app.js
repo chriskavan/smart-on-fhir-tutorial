@@ -35,9 +35,7 @@
         var docref = smart.patient.api.fetchAll({
                     type: 'DocumentReference',
                     query: {
-                      //date: {
-                      //  $or: ['2021']           //This is just a way to get the Appointments.Search call to work
-                      //}
+                      _count: { 10)
                     }
                   });        
 
