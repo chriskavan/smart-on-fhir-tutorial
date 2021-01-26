@@ -26,9 +26,12 @@
                     type: 'Appointment',
                     query: {
                       //date: ['ge2021-01-26','le2021-03-26']
+                      /* This leads to something like this: /Appointment?date=ge2021-01-26%7Cle2021-03-26&patient={patientid}
                       date: {
                         $and: ['ge2021-01-26','le2021-03-26']
-                      }  
+                      }
+                      */
+                      date: '2021'
                     }
                   });
         
