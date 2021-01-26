@@ -36,12 +36,6 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          var pattymcid = '';
-          pattymcid = patient.id;
-          /*if (typeof patient.id !== 'undefined') {
-            pattymcid = patient.id;
-          }*/
-
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
@@ -66,79 +60,6 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          p.pattymcid = pattymcid;
-          
-          console.log('p Values after Observation search:',p);
-
-          var appt = smart.patient.api.fetchAll({
-                      type: 'Appointment',
-                      query: {
-                        date: {
-                          $or: ['2021']           //This is just a way to get the Appointments.Search call to work
-                        }
-                      }
-                    });
-
-          $.when(pt, appt).fail(onError);
-
-          $.when(pt, appt).done(function(patient, appt) {
-
-            var apptid = '';
-            var apptstatus = '';
-            var appttype = '';
-            var apptparticipant = '';
-            var apptreason = '';
-            var apptdescription = '';
-            var apptstartdt = '';
-            var apptenddt = '';
-            var apptduration = '';
-            var apptcomment = '';
-
-            console.log('Trying the Appt thing:',appt);
-            
-            apptid = appt[0].id;
-            apptstatus = appt[0].status;
-            appttype = appt[0].type.text;
-            apptparticipant = appt[0].participant[0].actor.display;
-            apptreason = '';
-            apptdescription = appt[0].description;
-            apptstartdt = appt[0].start;
-            apptenddt = appt[0].end;
-            apptduration = appt[0].minutesDuration;
-            apptcomment = appt[0].text.div;
-            
-            var pa = defaultPatientAppt();
-            
-            p.apptid = apptid;
-            p.apptstatus = apptstatus;
-            p.appttype = appttype;
-            p.apptparticipant = apptparticipant;
-            p.apptreason = apptreason;
-            p.apptdescription = apptdescription;
-            p.apptstartdt = apptstartdt;
-            p.apptenddt = apptenddt;
-            p.apptduration = apptduration;
-            p.apptcomment = apptcomment;
-            
-            console.log('p Values during appt search:',p);
-            
-            pa.apptid = apptid;
-            pa.apptstatus = apptstatus;
-            pa.appttype = appttype;
-            pa.apptparticipant = apptparticipant;
-            pa.apptreason = apptreason;
-            pa.apptdescription = apptdescription;
-            pa.apptstartdt = apptstartdt;
-            pa.apptenddt = apptenddt;
-            pa.apptduration = apptduration;
-            pa.apptcomment = apptcomment;
-            console.log('pa Values during appt search:',pa);
-            //ret.resolve(p);
-
-            });
-
-
-
           ret.resolve(p);
         });
       } else {
@@ -162,32 +83,6 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      pattymcid: {value: ''},
-      apptid: {value: ''},
-      apptstatus: {value: ''},
-      appttype: {value: ''},
-      apptparticipant: {value: ''},
-      apptreason: {value: ''},
-      apptdescription: {value: ''},
-      apptstartdt: {value: ''},
-      apptenddt: {value: ''},
-      apptduration: {value: ''},
-      apptcomment: {value: ''},
-    };
-  }
-  
-    function defaultPatientAppt(){
-    return {
-      apptid: {value: ''},
-      apptstatus: {value: ''},
-      appttype: {value: ''},
-      apptparticipant: {value: ''},
-      apptreason: {value: ''},
-      apptdescription: {value: ''},
-      apptstartdt: {value: ''},
-      apptenddt: {value: ''},
-      apptduration: {value: ''},
-      apptcomment: {value: ''},
     };
   }
 
@@ -231,17 +126,6 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
-    $('#pattymcid').html(p.pattymcid);
-    $('#apptid').html(p.apptid);
-    $('#apptstatus').html(p.apptstatus);
-    $('#appttype').html(p.appttype);
-    $('#apptparticipant').html(p.apptparticipant);
-    $('#apptreason').html(p.apptreason);
-    $('#apptdescription').html(p.apptdescription);
-    $('#apptstartdt').html(p.apptstartdt);
-    $('#apptenddt').html(p.apptenddt);
-    $('#apptduration').html(p.apptduration);
-    $('#apptcomment').html(p.apptcomment);
   };
 
 })(window);
