@@ -20,11 +20,19 @@
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
                       }
                     }
+                  });          
+        var appt = smart.patient.api.fetchAll({
+                    type: 'Appointment',
+                    query: {
+                      date: {
+                        $or: ['2021']           //This is just a way to get the Appointments.Search call to work
+                      }
+                    }
                   });
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv, appt).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv, appt).done(function(patient, obv, appt) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -59,6 +67,42 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
+          
+          //Creating appt vars
+          var apptid = '';
+          var apptstatus = '';
+          var appttype = '';
+          var apptparticipant = '';
+          var apptreason = '';
+          var apptdescription = '';
+          var apptstartdt = '';
+          var apptenddt = '';
+          var apptduration = '';
+          var apptcomment = '';
+          
+          console.log('Trying the Appt thing:',appt);
+          
+          apptid = appt[0].id;
+          apptstatus = appt[0].status;
+          appttype = appt[0].type.text;
+          apptparticipant = appt[0].participant[0].actor.display;
+          apptreason = '';
+          apptdescription = appt[0].description;
+          apptstartdt = appt[0].start;
+          apptenddt = appt[0].end;
+          apptduration = appt[0].minutesDuration;
+          apptcomment = appt[0].text.div;
+          
+          p.apptid = apptid;
+          p.apptstatus = apptstatus;
+          p.appttype = appttype;
+          p.apptparticipant = apptparticipant;
+          p.apptreason = apptreason;
+          p.apptdescription = apptdescription;
+          p.apptstartdt = apptstartdt;
+          p.apptenddt = apptenddt;
+          p.apptduration = apptduration;
+          p.apptcomment = apptcomment;
 
           ret.resolve(p);
         });
@@ -83,6 +127,17 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      pattymcid: {value: ''},
+      apptid: {value: ''},
+      apptstatus: {value: ''},
+      appttype: {value: ''},
+      apptparticipant: {value: ''},
+      apptreason: {value: ''},
+      apptdescription: {value: ''},
+      apptstartdt: {value: ''},
+      apptenddt: {value: ''},
+      apptduration: {value: ''},
+      apptcomment: {value: ''},      
     };
   }
 
