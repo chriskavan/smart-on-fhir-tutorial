@@ -700,7 +700,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            for (i = 0, len = ref.length; i < len; i++) {
 	                p = ref[i];
 	                results.push([p.param, p.modifier, '=', p.operator, encodeURIComponent(p.value)].filter(identity).join(''));
-			console.log('buildSearchParams for ',query,': ',i,' - ',ref);
+			console.log('buildSearchParams for ',query);
+			console.log('i: ',i);
+			console.log('ref: ',ref);
 	            }
 	            return results;
 	        })();
@@ -715,6 +717,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    exports.$SearchParams = mw.$$Attr('url', function(args){
 	        var url = args.url;
+		console.log('args: ',args);
 	        if(args.query){
 	             var queryStr = buildSearchParams(args.query);
 	             return url + "?" + queryStr;
