@@ -35,7 +35,7 @@
         var docref = smart.patient.api.fetchAll({
                     type: 'DocumentReference',
                     query: {
-                      _count: { 10)
+                      _count: 10
                     }
                   });        
 
