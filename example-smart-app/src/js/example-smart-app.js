@@ -132,7 +132,7 @@
           
           docrefid = docref[0].id;
           docrefverid = docref[0].meta.versionId;
-          docreflastupdated = docref[0]..meta.lastUpdated;
+          docreflastupdated = docref[0].meta.lastUpdated;
           docrefstatustext = docref[0].text.status;
           docrefstatusresource = docref[0].status;
           docrefstatusdocument = docref[0].docStatus.coding[0].display;
