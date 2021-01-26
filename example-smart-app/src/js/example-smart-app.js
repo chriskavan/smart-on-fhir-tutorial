@@ -20,7 +20,8 @@
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
                       }
                     }
-                  });          
+                  });     
+        //Appointment.Search for patient
         var appt = smart.patient.api.fetchAll({
                     type: 'Appointment',
                     query: {
@@ -29,10 +30,20 @@
                       }
                     }
                   });
+        
+        //DocumentReference.Search for patient
+        var docref = smart.patient.api.fetchAll({
+                    type: 'DocumentReference',
+                    query: {
+                      //date: {
+                      //  $or: ['2021']           //This is just a way to get the Appointments.Search call to work
+                      //}
+                    }
+                  });        
 
-        $.when(pt, obv, appt).fail(onError);
+        $.when(pt, obv, appt,docref).fail(onError);
 
-        $.when(pt, obv, appt).done(function(patient, obv, appt) {
+        $.when(pt, obv, appt,docref).done(function(patient, obv, appt,docref) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -104,6 +115,8 @@
           p.apptduration = apptduration;
           p.apptcomment = apptcomment;
 
+          console.log('Trying the DocumentReference thing:',docref);
+          
           ret.resolve(p);
         });
       } else {
