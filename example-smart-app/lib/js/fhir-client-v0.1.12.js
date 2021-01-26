@@ -269,9 +269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  exports.identity = identity;
 
 	  var argsArray = function() {
-	     console.log('arguments (before): ',arguments);
 	     return Array.prototype.slice.call(arguments)
-	     console.log('arguments (after): ',arguments);
 	  };
 
 	  exports.argsArray = argsArray;
