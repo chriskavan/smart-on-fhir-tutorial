@@ -700,6 +700,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            for (i = 0, len = ref.length; i < len; i++) {
 	                p = ref[i];
 	                results.push([p.param, p.modifier, '=', p.operator, encodeURIComponent(p.value)].filter(identity).join(''));
+			console.log('buildSearchParams for ',query,': ',i,' - ',ref);
 	            }
 	            return results;
 	        })();
@@ -970,7 +971,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var targets = [
 	        "Account",
 	        "AllergyIntolerance",
-					"Appointment",
+		"Appointment",
 	        "BodySite",
 	        "CarePlan",
 	        "Claim",
@@ -1197,6 +1198,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function fetchAll (searchParams){
 	        var ret = adapter.defer();
 	        var results = [];
+		
+		console.log('searchParams = ',searchParams);
 
 	        drain(
 	            searchParams,
