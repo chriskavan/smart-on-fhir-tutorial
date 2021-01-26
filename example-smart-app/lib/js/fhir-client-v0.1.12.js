@@ -244,6 +244,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  exports.assertObject = assertObject;
 
 	  var reduceMap = function(m, fn, acc) {
+	    console.log('m :',m);
+	    console.log('fn :',fn);
+            console.log('acc :',acc);
 	    var k, v;
 	    acc || (acc = []);
 	    assertObject(m);
@@ -254,6 +257,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        v = m[k];
 	        results.push([k, v]);
 	      }
+	      console.log(' results:',results);
 	      return results;
 	    })()).reduce(fn, acc);
 	  };
@@ -265,10 +269,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  exports.identity = identity;
 
 	  var argsArray = function() {
+	     console.log('arguments (before): ',arguments);
 	     return Array.prototype.slice.call(arguments)
+	     console.log('arguments (after): ',arguments);
 	  };
 
 	  exports.argsArray = argsArray;
+	  console.log('argsArray :',argsArray);
 
 	  var mergeLists = function() {
 	    var reduce;
