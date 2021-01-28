@@ -17243,6 +17243,9 @@ BBClient.ready = function(input, callback, errback){
         var id_token = tokenResponse.id_token;
         var payload = jwt.decode(id_token);
         fhirClientParams["userId"] = payload["profile"];
+	console.log('accessTokenResolver - id_token: ',id_token);
+	console.log('accessTokenResolver - payload: ',payload);
+	console.log('accessTokenResolver - fhirClientParams: ',fhirClientParams);
     }
 
     if (tokenResponse.access_token !== undefined) {
