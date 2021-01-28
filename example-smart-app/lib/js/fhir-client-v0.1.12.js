@@ -700,9 +700,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            for (i = 0, len = ref.length; i < len; i++) {
 	                p = ref[i];
 	                results.push([p.param, p.modifier, '=', p.operator, encodeURIComponent(p.value)].filter(identity).join(''));
-			console.log('buildSearchParams for ',query);
-			console.log('i: ',i);
-			console.log('ref: ',ref);
+			//console.log('buildSearchParams for ',query);
+			//console.log('i: ',i);
+			//console.log('ref: ',ref);
 	            }
 	            return results;
 	        })();
@@ -717,7 +717,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    exports.$SearchParams = mw.$$Attr('url', function(args){
 	        var url = args.url;
-		console.log('args: ',args);
+		console.log('query args: ',args);
+		console.log('query url: ',args.url);
 	        if(args.query){
 	             var queryStr = buildSearchParams(args.query);
 	             return url + "?" + queryStr;
@@ -1201,14 +1202,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function fetchAll (searchParams){
 	        var ret = adapter.defer();
 	        var results = [];
-		
-		console.log('searchParams = ',searchParams);
+		var entryString = '';
+
+		console.log('fetchAll searchParams = ',searchParams);
 
 	        drain(
 	            searchParams,
 	            function(entries) {
 	                entries.forEach(function(entry) {
-	                    console.log('searchParams entry:',entry);
+			    entryString = entry.resourceType + '/' + entry.id;
+	                    console.log('fetched entry:',entry);
+			    console.log('Reference: ',entryString);
                       results.push(entry);
 	                });
 	            },
