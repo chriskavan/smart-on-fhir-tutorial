@@ -11,6 +11,14 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+
+        var fhirServerServiceUrl = smart.server.serviceUrl;
+        var fhirServerServiceUrlInfo = fhirServerServiceUrl.split("/");
+        var fhirVersion = fhirServerServiceUrlInfo[3];
+        var fhirTenant = fhirServerServiceUrlInfo[4];
+        console.log('fhirVersion: ',fhirVersion);
+        console.log('fhirTenantId: ',fhirTenant);
+
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
