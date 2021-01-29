@@ -76,10 +76,10 @@
                             
             if (patient.name[0].family instanceof Array) {
               lname = patient.name[0].family.join(' ');
-              } else {
+            } else {
               lname = patient.name[0].family;
-              }
             }
+            
 
           }
           
