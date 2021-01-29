@@ -34,7 +34,7 @@
           var appt = smart.patient.api.fetchAll({
                     type: 'Appointment',
                     query: {
-                      date: 'ge2021-01-29'
+                      date: 'ge2021-01-29T00:00:00.000Z'
                     }
                   });          
         } else {
