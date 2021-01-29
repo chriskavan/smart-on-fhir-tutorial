@@ -169,12 +169,15 @@
           docreflastupdated = docref[0].meta.lastUpdated;
           docrefstatustext = docref[0].text.status;
           docrefstatusresource = docref[0].status;
-          docrefstatusdocument = docref[0].docStatus.coding[0].display;
           docreftype = docref[0].type.text;
           docreftypecode = docref[0].type.coding[0].code;
           docrefcodesystem = docref[0].type.coding[0].system;
           docreftext = docref[0].text.div;
-          
+          if (fhirVersion = "r4") {
+            docrefstatusdocument = docref[0].docStatus;
+          } else {
+            docrefstatusdocument = docref[0].docStatus.coding[0].display;
+          }
           p.docrefid = docrefid;
           p.docrefverid = docrefverid;
           p.docreflastupdated = docreflastupdated;
