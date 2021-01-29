@@ -30,7 +30,15 @@
                     }
                   });     
         //Appointment.Search for patient
-        var appt = smart.patient.api.fetchAll({
+        if (fhirVersion = "r4") {
+          var appt = smart.patient.api.fetchAll({
+                    type: 'Appointment',
+                    query: {
+                      date: 'ge2021-01-29'
+                    }
+                  });          
+        } else {
+          var appt = smart.patient.api.fetchAll({
                     type: 'Appointment',
                     query: {
                       //date: ['ge2021-01-26','le2021-03-26']
@@ -41,7 +49,9 @@
                       */
                       date: '2021'
                     }
-                  });
+                  });          
+        }
+
         
         //DocumentReference.Search for patient
         
