@@ -154,8 +154,9 @@
     <script>
       extractData().then(
         //Display Patient Demographics and Observations if extractData was success
-        function(p) {
+        function(p,t) {
           drawVisualization(p);
+          buildTable(t);
         },
 
         //Display 'Failed to call FHIR Service' if extractData failed
