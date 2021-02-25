@@ -11,6 +11,10 @@ body {
   display: none;
 }
 
+#tableview {
+  display: none;
+}
+
 .spinner {
   margin: 100px auto 0;
   width: 70px;
