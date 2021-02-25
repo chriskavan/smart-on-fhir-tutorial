@@ -298,5 +298,9 @@
     $('#docrefcodesystem').html(p.docrefcodesystem);
     $('#docreftext').html(p.docreftext);
   };
-
+  
+  window.buildTable = function(t) {
+    $('#tableview').show();
+  };
+  
 })(window);
